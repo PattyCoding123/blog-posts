@@ -1,0 +1,108 @@
+---
+title: "Day 01 of my Attempt at 100 Days of SwiftUI"
+date: "2023-05-16"
+tags: ["swift", "swiftUI"]
+---
+
+I am currently attempting a challenge with my friend to learn SwiftUI in 100 days. To do so, I am following
+an amazing guide from [Hacking with Swift](https://www.hackingwithswift.com/100/swiftui)
+
+Day 1 is all about learning how to create variables, constants, strings, and numbers.
+
+## **Variables**
+
+Variables can be created with the **_var_** keyword:
+
+```swift
+var myName = "Patrick" // myName is a string
+myName="Hello" // Valid
+```
+
+Variables can have their values reassigned.
+
+## **Constants**
+
+Constants can be created with the **_let_** keyword:
+
+```swift
+let myMajor = "Computer Science" // myMajor is a string
+```
+
+Unlike variables, constants **CANNOT** be reassigned. So, doing something like:
+
+```swift
+let myMajor = "Computer Science"
+myMajor = "Biology" // ERROR
+```
+
+would not be allowed in Swift.
+
+## **Strings**
+
+Strings are variables/constants that are assigned to text. Text must always be in double quotes. If you want to use a double quote inside the string, escape them with a backslash \:
+
+```swift
+let myStr = "A valid \"string\" is here" // Valid
+```
+
+To create a multi-line string, you must use triple quotes in which they start and end on their own line:
+
+```swift
+let myWordyStr = """
+This is my string.
+It's on multiple lines.
+"""
+```
+
+## **Numbers**
+
+In Swift, the two main types of numbers are integers and decimals (referred to as "Doubles").
+
+- **_Integers_** are any whole number. Swift has a way to allow you to separate digits without causing a syntax error:
+
+```swift
+let myBigNumber = 100_000_000 // Valid integer, treated as 100000000
+```
+
+- **_Doubles_** are any numbers with a decimal point:
+
+```swift
+let pie = 3.14159 // Valid double
+```
+
+Until now, I have never
+seen a language where you could **NOT** perform mathematical
+operations between integers and doubles, until I met Swift.
+
+```swift
+let myInt = 1
+let myDouble = 1.0
+let mySum = myInt + myDouble // ERROR
+```
+
+You must cast either:
+
+```swift
+let myInt = 1
+let myDouble = 1.0
+let mySum = Double(myInt) + myDouble
+```
+
+OR
+
+```swift
+let myInt = 1
+let myDouble = 1.0
+let mySum = myInt + Int(myDouble)
+```
+
+## **Finally**
+
+Here are some of the other things I learned:
+
+- print() will print values to the terminal
+- // is a comment, /\* \*/ are multiline comments
+- Operators such as +, - , \* , and / are available to both integers and doubles
+- Compound assignment operators are valid for integers and
+  doubles
+- Swift is type safe! (Very happy about this)
