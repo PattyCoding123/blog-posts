@@ -1,0 +1,102 @@
+---
+title: "Day 02 of my Attempt at 100 Days of SwiftUI"
+date: "2023-05-17"
+tags: ["swift", "swiftUI"]
+---
+
+Happy to say I finished Day 2 of the [100 Days of SwiftUI](https://www.hackingwithswift.com/100/swiftui)
+
+Day 2 was all abut learning Booleans, String Concatenation,
+and String Interpolation. I also completed checkpoint 1!
+
+## **Booleans**
+
+Like in many programming languages, a boolean constant or variable can be declared using either the values **_true_** or **_false_**:
+
+```swift
+
+let myTrueBoolean = true
+
+let myFalseBoolean = false
+
+```
+
+Boolean variables can even be initialized by a function that
+returns a boolean value.
+
+```swift
+
+let myNum = 120
+let isMulti = myNum.isMultiple(of: 3) // Assigned as true
+
+```
+
+Additionally, a boolean variable can be negated (flipped) through either the **not** operator ( **!** ) or the **toggle()** method:
+
+```swift
+
+var myBoolean = false
+myBoolean = !myBoolean // myBoolean is now true
+myBoolean.toggle() // myBoolean is now false again
+
+```
+
+## **String Concatenation**
+
+In Swift, we can concatenate strings easily using the **+** overloaded operator.
+
+```swift
+
+let myMajor = "Computer Science" // myMajor is a string
+let myString = "My major is " + myMajor
+print(myString)
+// My major is Computer Science
+
+```
+
+It should be noted however that we cannot add other data types to strings through **+**. To do so, we would need to cast the value to a string. For instance:
+
+```swift
+
+let myNumber = 10
+let myString = "I want to print the number " + myNumber // NOT ALLOWED
+
+let correct = "I want to print the number " + String(myNumber) // ALLOWED
+
+```
+
+## **String Interpolation**
+
+In Swift, to inject variables or constants inside a string during runtime, we can use the \\( ) inside a string.
+
+```swift
+
+let charCount = 7
+let myName = "Patrick"
+let myMessage = "My first name, \(myName), has \(charCount) letters!"
+print(myMessage)
+// My first name, Patrick, has 7 letters!
+
+```
+
+## **Checkpoint 1**
+
+For checkpoint 1, we were tasked to create a Swift playground that:
+
+- Creates a constant holding any temperature in Celsius.
+- Converts it to Fahrenheit by multiplying by 9, dividing by 5, then adding 32.
+- Prints the result for the user, showing both the Celsius and Fahrenheit values.
+
+Here is my finished code:
+
+```swift
+
+// Checkpoint 1
+let celsiusTemp = 100
+let fahrenheit = ((celsiusTemp * 9) / 5) + 32
+print("Celsius = \(celsiusTemp) °C, Fahrenheit = \(fahrenheit) °F")
+// Celsius = 100 °C, Fahrenheit = 212 °F
+
+```
+
+I am looking forward to the upcoming challenges!
