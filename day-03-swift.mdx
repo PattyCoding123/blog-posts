@@ -1,0 +1,205 @@
+---
+title: "Day 03 of my Attempt at 100 Days of SwiftUI"
+date: "2023-05-18"
+tags: ["swift", "swiftUI"]
+---
+
+Day 3 of the [100 Days of SwiftUI](https://www.hackingwithswift.com/100/swiftui) has been completed!
+
+In Day 3, I got to learn about more complex data types in Swift
+such as arrays, dictionaries, sets, and enums.
+
+## **Arrays**
+
+Like in many programming languages, arrays allow us to store multiple items in sequential order. In Swift, arrays are dynamic so they can change their size during runtime. Additionally, arrays have type safety in the sense that arrays can only hold one data type:
+
+```swift
+
+var names = ["Patrick", "Alex", "David"] // Array of strings
+
+let booleans = [false, true, false] // Array of booleans
+
+let integers = [1, 2, 3, 4] // Array of integers
+
+```
+
+In Swift, arrays are 0-index based, meaning that the first
+item is always at index 0 and the nth item is at n-1.
+
+```swift
+
+let names = ["Patrick", "Alex", "David"]
+print(names[0]) // Prints "Patrick"
+
+```
+
+If you want to declare an empty array with the type safety,
+you can declare using:
+
+```swift
+
+var strings = Array<String>()
+// or
+var moreStrings = [String]()
+
+```
+
+Here are some of the common methods for arrays:
+
+```swift
+arr.append(item) // Appends the item to the end of the array
+
+arr.remove(at: i) // Removes the item at position i
+
+arr.removeAll() // Removes each item in the array
+
+arr.sorted() // Sorts the items in the array
+
+arr.reversed() // Reverses the items in the array
+
+arr.count // Not a method, but returns the length of the array
+
+```
+
+It should be noted however that for **reversed** method, Swift is clever enough such that it does not actually need to rearrange the items, but it remembers that you want the items reversed.
+
+## **Dictionaries**
+
+In Swift, dictionaries allow us to map keys to values, similar
+to languages like Python or JavaScript. Note that we still use square brackets like for arrays:
+
+```swift
+
+let info = ["name":"Patrick", "major":"Computer Science"]
+
+// Access a value using its key
+
+print(info["name"]) // Prints out Optional("Patrick")
+
+```
+
+When it comes to dictionaries in Swift, we can access them
+using keys even if they do not exist within the actual dictionary which is why Swift will wrap the return values in **Optional**
+
+- If we wanted to avoid the **Optional** wrap, we can explicitly declare a **_default_** value when accessing a key:
+
+```swift
+
+let info = ["name":"Patrick", "major":"Computer Science"]
+
+/* Access a value using its key with a default value
+if it does not exist */
+print(info["name", default: "Unknown"])
+
+```
+
+We can even designate an empty dictionary but with the type annotations using the following syntax:
+
+```swift
+
+/* emptyDictionary will be a dictionary type where keys
+are strings and the values are integers */
+var emptyDictionary = [String: Int]()
+
+```
+
+Dictionaries will never contain duplicate keys. In the event
+we try to assign a duplicate key, Swift will just override
+the existing key's value instead.
+
+```swift
+
+let info = ["name":"Patrick", "major":"Computer Science"]
+
+info["name"] = "Bob" // Patrick is no longer the value
+
+```
+
+Dictionaries contain a lot of the same methods as arrays.
+For instance, the .count method will return the length of the
+dictionary and .removeAll() removes all the keys.
+
+## **Sets**
+
+Sets are similar to arrays, but the difference being they cannot
+contain duplicates and there is no particular ordering of the items. I first encountered sets in Python, so it is nice that sets in Swift have the same functionality.
+
+```swift
+
+// To declare a set:
+let words = Set(["Hello", "Goodbye"])
+
+// or
+let moreWords = Set<String>()
+
+```
+
+With sets, we add elements using the **insert** method:
+
+```swift
+
+// To declare a set:
+let words = Set(["Hello", "Goodbye"])
+
+words.insert("Funny")
+words.insert("Laugh")
+
+```
+
+Additionally, while the contain method would be O(n) in time
+for an array, it's O(1) in time for sets (just like Python)
+since there are no duplicate items and therefore the items are
+most likely hashed to provide an incredibly quick search time.
+
+```swift
+
+// To declare a set:
+let words = Set(["Hello", "Goodbye"])
+
+words.contains("Hello")
+
+```
+
+Other useful properties of sets include **count** which return the length of the set, and **sorted** which will return the items in the set but in sorted manner.
+
+## **Enums**
+
+Enums, or enumerations, are another way to represent values in Swift. They are best if you are representing a limited set of
+values that always stay the same, such as the names of all
+the months.
+
+```swift
+
+enum Month {
+  case january
+  case february
+  case march
+  case april
+  case may
+  case june
+  case july
+  case august
+  case september
+  case october
+  case november
+  case december
+}
+
+or
+
+enum Month {
+  case january, february, march, april, may, june, july,
+  august, september, october, november, december
+}
+
+```
+
+Then, if we wanted to assign a variable to an enum:
+
+```swift
+
+var day = Month.march
+
+```
+
+In the example above, day is now of type **Month**, meaning it must a valid value of the **Month** enum.
