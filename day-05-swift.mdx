@@ -1,0 +1,184 @@
+---
+title: "Day 05 of my Attempt at 100 Days of SwiftUI"
+date: "2023-05-20"
+tags: ["swift", "swiftUI"]
+---
+
+Great news, I am finished with Day 5 of the [100 Days of SwiftUI](https://www.hackingwithswift.com/100/swiftui).
+
+Day 5 was a little lengthy as we covered many of the ways we check conditional statements in Swift!
+
+## **The if statement**
+
+The if statement is a foundational part of any high level programming language, and it is no different in Swift.
+The simple if statement looks like this:
+
+```swift
+
+if someCondition {
+  print("Do some stuff")
+}
+
+```
+
+As you can see, the if statement is very straightforward and there are three components:
+
+- The keyword **_if_**
+- The condition itself
+- The curly braces which signify the block of code that must be executed if the condition is true
+
+Furthermore, there are six comparison operators in Swift:
+
+- \> (greater than)
+- < (less than)
+- \>= (greater than or equal to)
+- <= (less than or equal to)
+- == (equal to)
+- != (not equal to)
+
+It is important to note that comparing two variables/constants that are of different types is invalid in Swift:
+
+```swift
+
+let myScore: Double = 89.8
+let highestScore: Int = 95
+
+// Invalid, since myScore and highestScore are different types
+if myScore >= highestScore {
+
+}
+
+```
+
+Finally, when it comes to data types with length such as Strings, Arrays, Dictionaries, and Sets, we can check whether they are empty using the **isEmpty** attribute instead of checking if **count == 0**. This is because using **count** is expensive in Swift since it will go through and manually count each item.
+
+```swift
+
+let username: String = "MyUsername"
+if username.isEmpty {
+  // Do something
+}
+
+```
+
+## **else, else if, &&, and ||**
+
+For checking multiple conditions, Swift supports the **else** and **else if** conditional keywords:
+
+```swift
+let score = 85
+
+if score > 89 {
+  print("You got an A")
+} else if score > 79 {
+  print("You got a B")
+} else {
+  print("Your grade is not eligible for the Honor Roll")
+}
+
+
+```
+
+To compare two conditions at once, we can use the compound conditional operators && and ||.
+
+```swift
+
+// We can use parentheses to indicate which compound
+// conditionals should be evaluated.
+if (isAuthed && isOwner) || isAdmin {
+
+}
+
+```
+
+While parentheses are not necessarily needed, they do help in maintaining the readability of your code.
+
+## **Switch Statements**
+
+Switch statements allow us to efficiently check multiple conditions in our Swift code. Here is an example of how to use a switch statement:
+
+```swift
+
+enum Weather {
+  case sunny
+  case cloudy
+  case rainy
+}
+
+let today = Weather.cloudy
+
+// Notice that the code we want to run for each case is indented.
+switch today {
+  case .sunny:
+    print("It is sunny")
+  case .cloudy:
+    print("It is cloudy")
+  case .rainy:
+    print("it is rainy")
+}
+
+
+```
+
+In Swift, the switch statement must be **exhaustive**, meaning that every single condition must be covered. In the example above, we covered each possible case for the enum. However, if we were comparing something like an integer or a string, we would need to provide a default case.
+
+```swift
+
+let number = 6
+
+switch number {
+  case 5:
+    // Do something
+  case 4:
+    // Do stuff
+  case 3:
+    // Do more
+  default:
+    /* If we don't hit the other cases, run this block
+    of code. */
+}
+
+
+```
+
+Finally, for switch statements, if we wanted cases to keep executing from one case downwards, we would use the **fallthrough** keyword:
+
+```swift
+
+let number = 6
+
+switch number {
+  case 5:
+    // Do something
+    fallthrough
+  case 4:
+    // Do stuff
+    fallthrough
+  case 3:
+    // Do more
+    fallthrough
+  default:
+    /* If we don't hit the other cases, run this block
+    of code. */
+}
+
+
+```
+
+In the example above, if case 5 were to execute, then all the code in case 4, case 3, and the default would execute as well.
+
+In general, I don't really use switch statements that much within my own code, but I would definitely use it if my code started to look a little unreadable.
+
+## **Ternary Conditional Operator**
+
+Finally, we get to one of my favorite operators to use which is the ternary conditional operator. Swift's version is basically the same as in all the languages I have used it in before such as TypeScript. A simple usage looks like this:
+
+```swift
+
+let canDrink = age >= 21 ? "Yes" : "No"
+
+```
+
+The example above assigns canDrink either "Yes" if age is greater than or equal to than 21, and "No" otherwise. While it seems more difficult to understand than using a simple if/else statement, it is sometimes the only thing you can do!
+
+For instance, I have experience working with React, and the ternary conditional operator is incredibly useful when doing conditional rendering. I suspect it will be the same in SwiftUI if we need to conditionally render some UI in our app.
