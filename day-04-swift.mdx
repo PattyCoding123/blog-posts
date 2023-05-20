@@ -1,0 +1,65 @@
+---
+title: "Day 04 of my Attempt at 100 Days of SwiftUI"
+date: "2023-05-19"
+tags: ["swift", "swiftUI"]
+---
+
+Day 4 of the [100 Days of SwiftUI](https://www.hackingwithswift.com/100/swiftui) has been completed.
+I am incredibly happy of the progress I am making so far!
+
+Day 4 was pretty short, just a coverage on Type Annotations and Checkpoint 2.
+
+## **Type Annotations**
+
+Type Annotations allow us to explicitly declare the type a variable or a constant should be during runtime.
+This is incredibly helpful, especially if we cannot infer a type by assigning a value to a variable/constant right away.
+The following code will showcase all the most common types we will use:
+
+```swift
+
+var names: String // names is of type String
+
+var someCount: Int // someCount is of type Int
+
+var money: Double // money is of type Double
+
+var truth: Bool // truth is of type Bool (Boolean)
+
+var words: [String] // words is an Array of Strings
+
+var associates: [String:Double] /* associates is a dictionary with String keys and Double values */
+
+var quick: Set<String> // quick is a Set which contains Strings
+```
+
+It is also good to note that with type annotations, this allows us to assign a value to a constant later while still keeping it type safe.
+
+```swift
+
+let name: String // The constant is of type String
+name = "Patrick" // Valid Swift
+
+```
+
+It is mainly up to preference whether someone wants to use type inferencing vs explicitly declaring the type of a variable/constant. Personally, I like explicitly declaring my types.
+
+## **Checkpoint 2**
+
+In Checkpoint 2, we were tasked to:
+
+- Create an array of Strings
+- Print the number of items in the array
+- Print the number of unique items in the array
+
+Here is my code:
+
+```swift
+
+// Checkpoint 2
+let randomArray: [String] = ["Hello", "Goodbye", "Hello", "Computers", "Patrick", "Computers"]
+let randomSet: Set<String> = Set(randomArray)
+
+print("Number of items in the array: \(randomArray.count)")
+print("Number of unique items in the array: \(randomSet.count)")
+
+```
